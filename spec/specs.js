@@ -3,8 +3,8 @@ describe("Address", function() {
     it("returns the full address with nice formatting", function() {
       var testAddress = Object.create(Address);
       testAddress.street = "123 4th Ave";
-      testAddress.city = "Portland";
-      testAddress.state = "Oregon";
+      testAddress.city = "98 Portland";
+      testAddress.state = "Oregon 45";
       testAddress.fullAddress().should.equal("123 4th Ave, Portland, Oregon");
     });
   });

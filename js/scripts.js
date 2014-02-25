@@ -6,8 +6,14 @@ var Contact = {
 
 var Address = {
   fullAddress: function() {
-    return this.street + ", " + this.city + ", " + this.state;
+    var inputCity = this.city;
+    var city = inputCity.replace(/[^\a-z]/ig, "");
+    var inputState = this.state;
+    var state = inputState.replace(/[^\a-z]/ig, "")
+
+    return this.street + ", " + city + ", " + state;
   }
+
 };
 
 var Phone = {
@@ -22,7 +28,7 @@ var Phone = {
   },
 
   valid: function() {
-    var phoneString = this.phone.replace(/ /g,"")
+    var phoneString = this.phone.replace(/ /g, "");
     if(phoneString.length === 10){
       return true;
     } else {
@@ -93,7 +99,7 @@ $(document).ready(function () {
         console.log(newPhone.valid());
 
        if(newPhone.valid() === false) {
-          alert("wrong");
+          alert("Please enter only digits and check your phone number's length.");
           return false;
         } else {
           newContact.phones.push(newPhone);
